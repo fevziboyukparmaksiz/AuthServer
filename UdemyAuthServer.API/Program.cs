@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using UdemyAuthServer.Core.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using SharedLibrary.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
