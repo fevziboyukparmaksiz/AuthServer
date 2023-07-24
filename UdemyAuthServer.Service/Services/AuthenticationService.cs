@@ -63,7 +63,7 @@ namespace UdemyAuthServer.Service.Services
             return Response<TokenDto>.Success(token, 200);
         }
 
-        public async Task<Response<TokenDto>> CreateTokenByRefreshToken(string refreshToken)
+        public async Task<Response<TokenDto>> CreateTokenByRefreshTokenAsync(string refreshToken)
         {
             var existRefreshToken = await _userRefreshTokenService.Where(x => x.Code == refreshToken).SingleOrDefaultAsync();
 
@@ -86,7 +86,7 @@ namespace UdemyAuthServer.Service.Services
             return Response<TokenDto>.Success(tokenDto, 200);
         }
 
-        public async Task<Response<NoDataDto>> RevokeRefrehToken(string refreshToken)
+        public async Task<Response<NoDataDto>> RevokeRefrehTokenAsync(string refreshToken)
         {
             var existRefreshToken = await _userRefreshTokenService.Where(x => x.Code == refreshToken).SingleOrDefaultAsync();
 
