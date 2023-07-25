@@ -10,14 +10,15 @@ namespace MiniApp2.API.Controllers
     [ApiController]
     public class InvoiceController : ControllerBase
     {
+        [HttpGet]
         public IActionResult GetInvoices()
         {
             var userName = HttpContext.User.Identity.Name;
 
-            var userId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
+            var userIdClaim = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
 
             //StockId StockQuantity Category UserId/UserName
-            return Ok($"Invoice İşlemleri => UserName: {userName}- UserId: {userId}");
+            return Ok($"Invoice İşlemleri => UserName: {userName}- UserId: {userIdClaim.Value}");
 
         }
     }
